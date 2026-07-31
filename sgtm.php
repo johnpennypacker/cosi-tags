@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: SGTM
+Plugin Name: Simple GTM
 Plugin URI: 
 Description: A simple Google Tag Manager code inserter
 Version: 1.0
