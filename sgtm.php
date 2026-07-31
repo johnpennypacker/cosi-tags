@@ -1,12 +1,18 @@
 <?php
 /*
-Plugin Name: SGTM
+Plugin Name: Simple GTM
 Plugin URI: 
 Description: A simple Google Tag Manager code inserter
 Version: 1.0
 Author: John Pennypacker
 Author URI: https://pennypacker.net
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 // the settings screen
 if( is_admin() ) {
@@ -123,7 +129,7 @@ if ( "nodefer" === trackingURLParams.get( "sgtm" ) ) {
 }
 ';
 	} else {
-		echo "\n" . $init_calls;
+		echo "\n" . $init_calls; // init_calls is javascript set earlier in this function.
 	}
 
 	echo '</script>

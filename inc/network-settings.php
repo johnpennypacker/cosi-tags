@@ -64,7 +64,7 @@ function sgtm_network_settings_page() {
 <div class="wrap">
 <h1>Simple GTM network settings</h1>
 
-<?php if ( isset( $_GET['updated'] ) ) : ?>
+<?php if ( isset( $_GET['updated'] ) ) : // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only UI flag set by our own nonce-verified redirect in sgtm_network_settings_save(); nothing is written based on it. ?>
 	<div id="setting-message" class="updated notice is-dismissible"><p><strong>Settings saved.</strong></p></div>
 <?php endif; ?>
 

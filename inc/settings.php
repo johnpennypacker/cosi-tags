@@ -80,6 +80,9 @@ add_action( 'admin_init', 'sgtm_settings_init' );
 
 /**
  * Sanitize a checkbox value into a boolean.
+ *
+ * @param str $value
+ * @return bool
  */
 function sgtm_sanitize_checkbox( $value ) {
 	return ! empty( $value );
@@ -92,6 +95,9 @@ function sgtm_sanitize_checkbox( $value ) {
  * Splits on commas, trims, upper-cases, validates each against the GTM-XXXX
  * shape, drops anything invalid or duplicated, and returns a normalized,
  * comma-separated string.
+ *
+ * @param str $value
+ * @return str
  */
 function sgtm_sanitize_ids( $value ) {
 	$ids   = array_map( 'trim', explode( ',', (string) $value ) );
