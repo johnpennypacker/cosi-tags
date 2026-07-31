@@ -38,9 +38,9 @@ function sgtm_network_settings_save() {
 	}
 	check_admin_referer( 'sgtm_network_settings' );
 
-	update_site_option( 'sgtm_id', sgtm_sanitize_ids( isset( $_POST['sgtm_id'] ) ? $_POST['sgtm_id'] : '' ) );
-	update_site_option( 'sgtm_defer', sgtm_sanitize_checkbox( isset( $_POST['sgtm_defer'] ) ? $_POST['sgtm_defer'] : FALSE ) );
-	update_site_option( 'sgtm_prevent_overrides', sgtm_sanitize_checkbox( isset( $_POST['sgtm_prevent_overrides'] ) ? $_POST['sgtm_prevent_overrides'] : FALSE ) );
+	update_site_option( 'sgtm_id', sgtm_sanitize_ids( isset( $_POST['sgtm_id'] ) ? wp_unslash( $_POST['sgtm_id'] ) : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_ids() validates each ID against the GTM-XXXX pattern.
+	update_site_option( 'sgtm_defer', sgtm_sanitize_checkbox( isset( $_POST['sgtm_defer'] ) ? wp_unslash( $_POST['sgtm_defer'] ) : FALSE ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_checkbox() casts the value to a boolean.
+	update_site_option( 'sgtm_prevent_overrides', sgtm_sanitize_checkbox( isset( $_POST['sgtm_prevent_overrides'] ) ? wp_unslash( $_POST['sgtm_prevent_overrides'] ) : FALSE ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_checkbox() casts the value to a boolean.
 
 	wp_safe_redirect( add_query_arg(
 		array( 'page' => 'sgtm-network-settings', 'updated' => 'true' ),

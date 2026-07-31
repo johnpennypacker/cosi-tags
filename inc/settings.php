@@ -198,8 +198,8 @@ function sgtm_settings_page_network_member() {
 		check_admin_referer( 'sgtm_site_settings' );
 		if ( ! empty( $_POST['sgtm_override'] ) ) {
 			update_option( 'sgtm_override', TRUE );
-			update_option( 'sgtm_id', sgtm_sanitize_ids( isset( $_POST['sgtm_id'] ) ? $_POST['sgtm_id'] : '' ) );
-			update_option( 'sgtm_defer', sgtm_sanitize_checkbox( isset( $_POST['sgtm_defer'] ) ? $_POST['sgtm_defer'] : FALSE ) );
+			update_option( 'sgtm_id', sgtm_sanitize_ids( isset( $_POST['sgtm_id'] ) ? wp_unslash( $_POST['sgtm_id'] ) : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_ids() validates each ID against the GTM-XXXX pattern.
+			update_option( 'sgtm_defer', sgtm_sanitize_checkbox( isset( $_POST['sgtm_defer'] ) ? wp_unslash( $_POST['sgtm_defer'] ) : FALSE ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_checkbox() casts the value to a boolean.
 		} else {
 			// Stop overriding: fall back to the network by removing the site values.
 			delete_option( 'sgtm_override' );
