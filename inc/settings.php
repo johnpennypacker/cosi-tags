@@ -13,8 +13,8 @@ if ( !defined('ABSPATH') )
  */
 function sgtm_settings_menu_item() {
 	add_options_page(
-		__( 'Simple Google Tag Manager', 'sgtm' ), // page title
-		__( 'Simple Google Tag Manager', 'sgtm' ), // menu title
+		__( 'Simple GTM', 'sgtm' ), // page title
+		__( 'Simple GTM', 'sgtm' ), // menu title
 		'manage_options', // capability
 		'sgtm-settings', // menu slug
 		'sgtm_settings_page' // callback
@@ -163,7 +163,7 @@ function sgtm_settings_page() {
 function sgtm_settings_page_standalone() {
 ?>
 <div class="wrap">
-<h1>Simple Google Tag Manager settings</h1>
+<h1>Simple GTM settings</h1>
 
 <form method="post" action="options.php">
 	<?php settings_fields( 'sgtm_settings' ); ?>
@@ -208,7 +208,7 @@ function sgtm_settings_page_network_member() {
 	$net_defer  = get_site_option( 'sgtm_defer', FALSE );
 ?>
 <div class="wrap">
-<h1>Simple Google Tag Manager settings</h1>
+<h1>Simple GTM settings</h1>
 
 <style>#sgtm-fields[disabled]{opacity:.5;}</style>
 
@@ -218,7 +218,7 @@ function sgtm_settings_page_network_member() {
 	<p>
 		<label for="sgtm-override">
 			<input type="checkbox" id="sgtm-override" name="sgtm_override" value="1" <?php checked( $overriding ); ?>>
-			Override the network Google Tag Manager settings for this site.
+			Override the network Simple GTM settings for this site.
 		</label>
 	</p>
 
@@ -274,7 +274,7 @@ function sgtm_settings_page_network_member() {
 function sgtm_settings_page_locked() {
 ?>
 <div class="wrap">
-<h1>Simple Google Tag Manager settings</h1>
+<h1>Simple GTM settings</h1>
 
 <div class="notice notice-info inline">
 	<p>These settings are managed by your network administrator and can't be changed here.</p>

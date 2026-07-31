@@ -75,7 +75,7 @@ function sgtm_head() {
 		$init_calls .= ' initGTM( window, document, "script", "dataLayer", "' . esc_js( $id ) . '" );' . "\n";
 	}
 
-	echo '<!-- Simple Google Tag Manager -->
+	echo '<!-- Simple GTM -->
 <script>
 	// this is the guts of the default anonymous function from the Googz.
 	function initGTM( w, d, s, l, i ) {
@@ -92,7 +92,7 @@ function sgtm_head() {
 
 	if ( $defer ) {
 		echo '
-// Monmouth wrote this. works great.
+// based on code from Monmouth, it works great.
 window.addEventListener("loadTracking", function(event) {
 ' . $init_calls . '}, false);
 
@@ -127,7 +127,7 @@ if ( "nodefer" === trackingURLParams.get( "sgtm" ) ) {
 	}
 
 	echo '</script>
-<!-- End Simple Google Tag Manager -->
+<!-- End Simple GTM -->
 ';
 
 }
@@ -141,14 +141,14 @@ function sgtm_body() {
 	if ( empty( $ids ) ) {
 		return;
 	}
-	echo '<!-- Simple Google Tag Manager (noscript) -->';
+	echo '<!-- Simple GTM (noscript) -->';
 	foreach ( $ids as $id ) {
 		echo '
 		<noscript><iframe src="' . esc_url( 'https://www.googletagmanager.com/ns.html?id=' . $id ) . '"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>';
 	}
 	echo '
-		<!-- End Simple Google Tag Manager (noscript) -->';
+		<!-- End Simple GTM (noscript) -->';
 }
 add_action( 'wp_body_open', 'sgtm_body' );
 

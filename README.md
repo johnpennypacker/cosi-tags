@@ -1,4 +1,4 @@
-# Simple Google Tag Manager
+# Simple GTM
 
 In most cases, this'll be all you need to add Google Tag Manger to your WordPress site. If your site is complicated, then you'll want a different solution that is sufficiently complicated to complete your idiom, but if you're like me, and you just want to insert the GTM snippets on your site, this plugin is your huckleberry.
 
@@ -16,17 +16,17 @@ Plus, your theme should follow two particular WordPress standards. Those standar
 ## Set up
 
 - Install the plugin.
-- Navigate to Admin -> Settings -> Simple Google Tag Manager and enter your Container ID. *Important:* without a Container ID, the plugin does nothing.
+- Navigate to Admin -> Settings -> Simple GTM and enter your Container ID. *Important:* without a Container ID, the plugin does nothing.
 - Optionally choose to defer loading.
 - Hit Save.
 
 ### Multisite set up
-- as above, except you might choose to set up network default settings under Network Admin -> Settings -> Simple Google Tag Manager.
+- as above, except you might choose to set up network default settings under Network Admin -> Settings -> Simple GTM.
 - by default, subsites can override network settings, but you can prevent that in the the network settings if desired.
 
 ## Validation
 
-Load a WordPress page in your favorite web browser and view the source code. Search the code for `Google Tag Manager`. You should find two snippets, and each snippet should include your container ID(s).
+Load a WordPress page in your favorite web browser and view the source code. Search the code for "Simple GTM". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
 
 ## Questions
 
@@ -40,15 +40,15 @@ It instructs the browser not to load GTM and everything that comes with it until
 
 ### What is the benefit of defer loading?
 
-Your Page Speed scores will go up and you will reap all the associated benefits.
+Your Page Speed scores will likely improve and you will reap all the associated benefits.
 
 ### Will defer loading affect my analytics stats?
 
-Yes. It'll filter out bots and bounces which will probably lead to a drop in pageviews and sessions. If you're still leaning on those metrics and want to talk through options, email me at johnpennypacker@cosidigital.com, let's talk it through. 
+Yes. It'll filter out bots and bounces which may lead to a drop in pageviews and sessions. If you're still leaning on those metrics and want to talk through options, contact me and we'll talk it through.
 
-### Can I override defer settings for a particular page?
+### Can I override defer settings on an ad hoc basis?
 
-Yes, you can add sgtm=nodefer to the URL and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
+Yes, you can add sgtm=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
 
 ### What if I want to load multiple GTM containers?
 

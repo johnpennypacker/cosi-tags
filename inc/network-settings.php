@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) )
 function sgtm_network_settings_menu_item() {
 	add_submenu_page(
 		'settings.php', // parent (Network Admin → Settings)
-		__( 'Simple Google Tag Manager', 'sgtm' ), // page title
-		__( 'Simple Google Tag Manager', 'sgtm' ), // menu title
+		__( 'Simple GTM', 'sgtm' ), // page title
+		__( 'Simple GTM', 'sgtm' ), // menu title
 		'manage_network_options', // capability
 		'sgtm-network-settings', // menu slug
 		'sgtm_network_settings_page' // callback
@@ -62,7 +62,7 @@ function sgtm_network_settings_page() {
 
 ?>
 <div class="wrap">
-<h1>Simple Google Tag Manager network settings</h1>
+<h1>Simple GTM network settings</h1>
 
 <?php if ( isset( $_GET['updated'] ) ) : ?>
 	<div id="setting-message" class="updated notice is-dismissible"><p><strong>Settings saved.</strong></p></div>
