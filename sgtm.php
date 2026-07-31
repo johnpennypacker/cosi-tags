@@ -6,7 +6,13 @@ Description: A simple Google Tag Manager code inserter
 Version: 1.0
 Author: John Pennypacker
 Author URI: https://pennypacker.net
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 // the settings screen
 if( is_admin() ) {
@@ -90,11 +96,11 @@ function sgtm_head() {
 	}
 ';
 
+	$output = "\n%s"; // default value calls initGTM immediately.
 	if ( $defer ) {
-		echo '
+		$output = '
 // based on code from Monmouth, it works great.
-window.addEventListener("loadTracking", function(event) {
-' . $init_calls . '}, false);
+window.addEventListener("loadTracking", function(event) {%s}, false);
 
 const loadTracking = new Event( "loadTracking" );
 const triggerEvents = [
@@ -121,10 +127,9 @@ if ( "nodefer" === trackingURLParams.get( "sgtm" ) ) {
 		passive: true
 	}));
 }
-';
-	} else {
-		echo "\n" . $init_calls;
+		';
 	}
+	echo sprintf( $output, $init_calls ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Each interpolated ID was already run through esc_js() when $init_calls was built above.
 
 	echo '</script>
 <!-- End Simple GTM -->
