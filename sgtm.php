@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: Simple Google Tag Manager
+Plugin Name: SGTM
 Plugin URI: 
-Description: The simplest Google Tag Manager code inserter
-Version: 0.9
+Description: A simple Google Tag Manager code inserter
+Version: 1.0
 Author: John Pennypacker
 Author URI: https://pennypacker.net
 */
