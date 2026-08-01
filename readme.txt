@@ -43,7 +43,7 @@ Plus, your theme should follow two particular WordPress standards. Those standar
 
 Load a WordPress page in your favorite web browser and view the source code. Search the code for "Simple GTM". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
 
-== Frequently Asked Questions ==
+== Questions and answers ==
 
 = What does the plugin do if I activate it but don't enter a Container ID? =
 
@@ -65,9 +65,17 @@ Yes. It'll filter out bots and bounces which may lead to a drop in pageviews and
 
 Yes, you can add sgtm=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
 
-= What if I want to load multiple GTM containers? =
+= Can I load multiple GTM containers? =
 
 You can enter more than one ID, separate them by commas.
+
+= How do I track custom events like clicks and scrolling? =
+
+Manage those directly in Google Tag Manager.
+
+= Does Simple GTM load Google Tag Manager in the admin panel? =
+
+No. Tag Manager is loaded on the front end of the website only.
 
 == Screenshots ==
 

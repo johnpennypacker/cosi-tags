@@ -7,8 +7,9 @@
  */
 
 // Block direct requests
-if ( ! defined( 'ABSPATH' ) )
+if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
+}
 
 /**
  * Add the network settings page under the Network Admin → Settings menu.
@@ -87,7 +88,7 @@ function sgtm_network_settings_page() {
 					<input type="checkbox" aria-describedby="sgtm-defer-desc" name="sgtm_defer" id="sgtm-defer" value="1" <?php checked( get_site_option( 'sgtm_defer', FALSE ) ); ?>>
 					Load Google Tag Manager after the user interacts with the page.
 				</label>
-				<p class="description" id="sgtm-defer-desc">This may reduce pageviews but it'll weed out many bots and bounces. It'll also improve page speed.</p>
+				<p class="description" id="sgtm-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.</p>
 			</td>
 		</tr>
 		<tr>
@@ -105,4 +106,4 @@ function sgtm_network_settings_page() {
 </form>
 
 </div>
-<?php } ?>
+<?php }

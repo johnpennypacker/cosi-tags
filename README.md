@@ -50,7 +50,15 @@ Yes. It'll filter out bots and bounces which may lead to a drop in pageviews and
 
 Yes, you can add sgtm=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
 
-### What if I want to load multiple GTM containers?
+### How do I track custom events like clicks and scrolling?
+
+Manage those directly in Google Tag Manager.
+
+### Can I load multiple GTM containers?
 
 You can enter more than one ID, separate them by commas.
+
+### Does Simple GTM load Google Tag Manager in the admin panel?
+
+No. Tag Manager is loaded on the front end of the website only.
 

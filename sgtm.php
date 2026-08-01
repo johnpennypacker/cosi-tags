@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: SGTM
+Plugin Name: Simple GTM
 Plugin URI: 
 Description: A simple Google Tag Manager code inserter
 Version: 1.0
@@ -11,12 +11,13 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: simple-gtm
 */
 
+// Block direct requests
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	die( '-1' );
 }
 
 // the settings screen
-if( is_admin() ) {
+if ( is_admin() ) {
 	include( 'inc/settings.php' );
 	// the network-wide settings screen only exists on multisite
 	if ( is_multisite() ) {

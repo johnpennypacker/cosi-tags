@@ -4,8 +4,9 @@
  */
 
 // Block direct requests
-if ( !defined('ABSPATH') )
-	die('-1');
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
 
 /**
  * Add the settings page to the settings menu.
@@ -31,7 +32,7 @@ add_action( 'admin_menu', 'sgtm_settings_menu_item' );
  * can delete the site options when a site stops overriding the network.
  */
 function sgtm_settings_init() {
-	register_setting (
+	register_setting(
 		'sgtm_settings', // option group
 		'sgtm_id', // option name
 		array(
@@ -40,7 +41,7 @@ function sgtm_settings_init() {
 			'type' => 'string'
 		)
 	);
-	register_setting (
+	register_setting(
 		'sgtm_settings', // option group
 		'sgtm_defer', // option name
 		array(
@@ -81,7 +82,7 @@ add_action( 'admin_init', 'sgtm_settings_init' );
 /**
  * Sanitize a checkbox value into a boolean.
  *
- * @param str $value
+ * @param string $value
  * @return bool
  */
 function sgtm_sanitize_checkbox( $value ) {
@@ -96,8 +97,8 @@ function sgtm_sanitize_checkbox( $value ) {
  * shape, drops anything invalid or duplicated, and returns a normalized,
  * comma-separated string.
  *
- * @param str $value
- * @return str
+ * @param string $value
+ * @return string
  */
 function sgtm_sanitize_ids( $value ) {
 	$ids   = array_map( 'trim', explode( ',', (string) $value ) );
@@ -132,7 +133,7 @@ function sgtm_field_defer() {
 		<input type="checkbox" aria-describedby="sgtm-defer-desc" name="sgtm_defer" id="sgtm-defer" value="1" <?php checked( get_option( 'sgtm_defer', FALSE ) ); ?>>
 		Load Google Tag Manager after the user interacts with the page.
 	</label>
-	<p class="description" id="sgtm-defer-desc">This may reduce pageviews, but it'll weed out many bots and bounces It'll also improve page speed.</p>
+	<p class="description" id="sgtm-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.</p>
 	<?php
 }
 
@@ -244,7 +245,7 @@ function sgtm_settings_page_network_member() {
 						<input type="checkbox" aria-describedby="sgtm-defer-desc" name="sgtm_defer" id="sgtm-defer" value="1" <?php checked( get_option( 'sgtm_defer', FALSE ) ); ?>>
 						Load Google Tag Manager after the user interacts with the page.
 					</label>
-					<p class="description" id="sgtm-defer-desc">This may reduce pageviews, but it'll weed out many bots and bounces It'll also improve page speed.<br>Network default: <code><?php echo $net_defer ? 'On' : 'Off'; ?></code></p>
+					<p class="description" id="sgtm-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.<br>Network default: <code><?php echo $net_defer ? 'On' : 'Off'; ?></code></p>
 				</td>
 			</tr>
 		</table>
