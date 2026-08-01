@@ -28,7 +28,7 @@ Plus, your theme should follow two particular WordPress standards. Those standar
 
 Load a WordPress page in your favorite web browser and view the source code. Search the code for "Simple GTM". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
 
-## Questions
+## Questions and answers
 
 ### What does the plugin do if I activate it but don't enter a Container ID?
 
