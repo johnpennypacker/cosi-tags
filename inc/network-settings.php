@@ -16,8 +16,8 @@ if ( ! defined( 'ABSPATH' ) )
 function sgtm_network_settings_menu_item() {
 	add_submenu_page(
 		'settings.php', // parent (Network Admin → Settings)
-		__( 'Simple GTM', 'sgtm' ), // page title
-		__( 'Simple GTM', 'sgtm' ), // menu title
+		__( 'Simple GTM', 'simple-gtm' ), // page title
+		__( 'Simple GTM', 'simple-gtm' ), // menu title
 		'manage_network_options', // capability
 		'sgtm-network-settings', // menu slug
 		'sgtm_network_settings_page' // callback

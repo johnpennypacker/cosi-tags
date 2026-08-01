@@ -13,8 +13,8 @@ if ( !defined('ABSPATH') )
  */
 function sgtm_settings_menu_item() {
 	add_options_page(
-		__( 'Simple GTM', 'sgtm' ), // page title
-		__( 'Simple GTM', 'sgtm' ), // menu title
+		__( 'Simple GTM', 'simple-gtm' ), // page title
+		__( 'Simple GTM', 'simple-gtm' ), // menu title
 		'manage_options', // capability
 		'sgtm-settings', // menu slug
 		'sgtm_settings_page' // callback

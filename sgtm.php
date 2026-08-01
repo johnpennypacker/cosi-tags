@@ -8,6 +8,7 @@ Author: John Pennypacker
 Author URI: https://pennypacker.net
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Text Domain: simple-gtm
 */
 
 if ( ! defined( 'ABSPATH' ) ) {
