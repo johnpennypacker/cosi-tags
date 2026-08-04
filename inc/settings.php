@@ -212,11 +212,13 @@ function sgtm_settings_page_network_member() {
 	$overriding = get_option( 'sgtm_override', FALSE );
 	$net_id     = get_site_option( 'sgtm_id', '' );
 	$net_defer  = get_site_option( 'sgtm_defer', FALSE );
+
+	wp_enqueue_script( 'sgtm_admin', SGTM_URL . 'assets/admin.js',  [], SGTM_VERSION );
+	wp_enqueue_style(  'sgtm_admin', SGTM_URL . 'assets/admin.css', [], SGTM_VERSION );
+
 ?>
 <div class="wrap">
 <h1>Simple GTM settings</h1>
-
-<style>#sgtm-fields[disabled]{opacity:.5;}</style>
 
 <form method="post" action="">
 	<?php wp_nonce_field( 'sgtm_site_settings' ); ?>
@@ -253,21 +255,6 @@ function sgtm_settings_page_network_member() {
 	<input type="hidden" name="sgtm_settings_submit" value="1">
 	<?php submit_button( 'Save Settings' ); ?>
 </form>
-
-<script>
-( function() {
-	var cb = document.getElementById( 'sgtm-override' );
-	var fs = document.getElementById( 'sgtm-fields' );
-	if ( ! cb || ! fs ) {
-		return;
-	}
-	function sync() {
-		fs.disabled = ! cb.checked;
-	}
-	cb.addEventListener( 'change', sync );
-	sync();
-} )();
-</script>
 
 </div>
 <?php

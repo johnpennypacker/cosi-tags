@@ -14,6 +14,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+define( 'SGTM_PATH', plugin_dir_path( __FILE__ ) );
+define( 'SGTM_URL', plugin_dir_url( __FILE__ ) );
+define( 'SGTM_VERSION', get_file_data( __FILE__, ['Version'], false )[0] );
+
 // the settings screen
 if( is_admin() ) {
 	include( 'inc/settings.php' );
