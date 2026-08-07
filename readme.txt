@@ -9,13 +9,15 @@ Stable tag: 1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Insert Google Tag Manager into your WordPress site, with optional deferred loading to protect your Page Speed scores.
+Insert Google Tag Manager into your WordPress site, with optional deferred loading to protect your Page Speed scores.  
 
 == Description ==
 
 In most cases, this'll be all you need to add Google Tag Manager to your WordPress site. If your site is complicated, then you'll want a different solution that is sufficiently complicated to complete your idiom, but if you're like me, and you just want to insert the GTM snippets on your site, this plugin is your huckleberry.
 
 This plugin works on multisite installations as well as single installations. When used in a network, you have the option of specifying network default settings and allowing individual sites to override them or not.
+
+Note: Google Tag Manager is a third-party service provided by Google. This plugin embeds code from that service onto your WordPress website.
 
 = Requirements =
 
@@ -45,6 +47,18 @@ Load a WordPress page in your favorite web browser and view the source code. Sea
 
 == Questions and answers ==
 
+= What does Google Tag Manager do? =
+
+Google Tag Manager embeds snippets of HTML and Javascript on your website. It is often used to manage analytics tools on a website without changing the website's code.
+
+= What does Simple GTM do? =
+
+Simple GTM embeds the snippets of HTML and Javascript that Google Tag Manager requires on your website — in the proper locations — without you having to manually change any code.
+
+= Does Google Tag Manager have terms of service or related policies? =
+
+Yes. See: [Google Tag Manager Terms of Service](https://marketingplatform.google.com/about/analytics/tag-manager/use-policy/) for information on usage, privacy, and terms.
+
 = What does the plugin do if I activate it but don't enter a Container ID? =
 
 Nothing. Well, nothing meaningful. If this is the case, disable the plugin until you're ready to add a Container ID.
@@ -59,7 +73,7 @@ Your Page Speed scores will likely improve and you will reap all the associated 
 
 = Will defer loading affect my analytics stats? =
 
-Yes. It'll filter out bots and bounces which may lead to a drop in pageviews and sessions. If you're still leaning on those metrics and want to talk through options, contact me and we'll talk it through.
+Probably. It'll filter out bots and bounces which may lead to a drop in recorded pageviews and sessions. If you're still leaning on those metrics and want to talk through options, contact me and we'll talk it through.
 
 = Can I override defer settings on an ad hoc basis? =
 
