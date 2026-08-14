@@ -28,6 +28,19 @@ add_action( 'network_admin_menu', 'cosi_tags_network_settings_menu_item' );
 
 
 /**
+ * Add a "Settings" link to this plugin's row on the Network Plugins screen.
+ *
+ * @param string[] $links
+ * @return string[]
+ */
+function cosi_tags_network_plugin_action_links( $links ) {
+	$settings_link = '<a href="' . esc_url( network_admin_url( 'settings.php?page=cosi-tags-network-settings' ) ) . '">' . __( 'Network Settings', 'cosi-tags' ) . '</a>';
+	array_push( $links, $settings_link );
+	return $links;
+}
+
+
+/**
  * Persist the network settings.
  *
  * Hooked to network_admin_edit_cosi_tags_network_settings, which fires when the

@@ -23,9 +23,11 @@ define( 'COSITAGS_VERSION', get_file_data( __FILE__, ['Version'], false )[0] );
 // the settings screen
 if ( is_admin() ) {
 	include( 'inc/settings.php' );
+	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'cosi_tags_plugin_action_links' );
 	// the network-wide settings screen only exists on multisite
 	if ( is_multisite() ) {
 		include( 'inc/network-settings.php' );
+		add_filter( 'network_admin_plugin_action_links_' . plugin_basename( __FILE__ ), 'cosi_tags_network_plugin_action_links' );
 	}
 }
 

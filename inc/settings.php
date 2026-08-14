@@ -25,6 +25,19 @@ add_action( 'admin_menu', 'cosi_tags_settings_menu_item' );
 
 
 /**
+ * Add a "Settings" link to this plugin's row on the (per-site) Plugins screen.
+ *
+ * @param string[] $links
+ * @return string[]
+ */
+function cosi_tags_plugin_action_links( $links ) {
+	$settings_link = '<a href="' . esc_url( admin_url( 'options-general.php?page=cosi-tags-settings' ) ) . '">' . __( 'Settings', 'cosi-tags' ) . '</a>';
+	array_push( $links, $settings_link );
+	return $links;
+}
+
+
+/**
  * Register the settings with WordPress.
  *
  * Standalone (non-multisite) installs save through the Settings API / options.php.
