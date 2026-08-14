@@ -214,7 +214,7 @@ function cosi_tags_settings_page_network_member() {
 	$net_id     = get_site_option( 'cosi_tags_id', '' );
 	$net_defer  = get_site_option( 'cosi_tags_defer', FALSE );
 
-	wp_enqueue_script( 'cosi_tags_admin', COSITAGS_URL . 'assets/admin.js',  [], COSITAGS_VERSION );
+	wp_enqueue_script( 'cosi_tags_admin', COSITAGS_URL . 'assets/admin.js',  [], COSITAGS_VERSION, FALSE );
 	wp_enqueue_style(  'cosi_tags_admin', COSITAGS_URL . 'assets/admin.css', [], COSITAGS_VERSION );
 
 ?>
