@@ -1,4 +1,4 @@
-# Simple GTM
+# Così Tags
 
 In most cases, this'll be all you need to add Google Tag Manger to your WordPress site. If your site is complicated, then you'll want a different solution that is sufficiently complicated to complete your idiom, but if you're like me, and you just want to insert the GTM snippets on your site, this plugin is your huckleberry.
 
@@ -16,17 +16,17 @@ Plus, your theme should follow two particular WordPress standards. Those standar
 ## Set up
 
 - Install the plugin.
-- Navigate to Admin -> Settings -> Simple GTM and enter your Container ID. *Important:* without a Container ID, the plugin does nothing.
+- Navigate to Admin -> Settings -> Così Tags and enter your Container ID. *Important:* without a Container ID, the plugin does nothing.
 - Optionally choose to defer loading.
 - Hit Save.
 
 ### Multisite set up
-- as above, except you might choose to set up network default settings under Network Admin -> Settings -> Simple GTM.
+- as above, except you might choose to set up network default settings under Network Admin -> Settings -> Così Tags.
 - by default, subsites can override network settings, but you can prevent that in the the network settings if desired.
 
 ## Validation
 
-Load a WordPress page in your favorite web browser and view the source code. Search the code for "Simple GTM". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
+Load a WordPress page in your favorite web browser and view the source code. Search the code for "Così Tags". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
 
 ## Questions and answers
 
@@ -48,7 +48,7 @@ Yes. It'll filter out bots and bounces which may lead to a drop in pageviews and
 
 ### Can I override defer settings on an ad hoc basis?
 
-Yes, you can add sgtm=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
+Yes, you can add cosi-tags=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
 
 ### How do I track custom events like clicks and scrolling?
 
@@ -58,7 +58,7 @@ Manage those directly in Google Tag Manager.
 
 You can enter more than one ID, separate them by commas.
 
-### Does Simple GTM load Google Tag Manager in the admin panel?
+### Does Così Tags load Google Tag Manager in the admin panel?
 
 No. Tag Manager is loaded on the front end of the website only.
 

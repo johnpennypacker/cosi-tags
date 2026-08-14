@@ -12,40 +12,40 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Add the settings page to the settings menu.
  * @see https://developer.wordpress.org/reference/functions/add_options_page/
  */
-function sgtm_settings_menu_item() {
+function cosi_tags_settings_menu_item() {
 	add_options_page(
-		__( 'Simple GTM', 'simple-gtm' ), // page title
-		__( 'Simple GTM', 'simple-gtm' ), // menu title
+		__( 'Così Tags', 'cosi-tags' ), // page title
+		__( 'Così Tags', 'cosi-tags' ), // menu title
 		'manage_options', // capability
-		'sgtm-settings', // menu slug
-		'sgtm_settings_page' // callback
+		'cosi-tags-settings', // menu slug
+		'cosi_tags_settings_page' // callback
 	);
 }
-add_action( 'admin_menu', 'sgtm_settings_menu_item' );
+add_action( 'admin_menu', 'cosi_tags_settings_menu_item' );
 
 
 /**
  * Register the settings with WordPress.
  *
  * Standalone (non-multisite) installs save through the Settings API / options.php.
- * On multisite the per-site form is saved by hand (see sgtm_settings_page) so it
+ * On multisite the per-site form is saved by hand (see cosi_tags_settings_page) so it
  * can delete the site options when a site stops overriding the network.
  */
-function sgtm_settings_init() {
+function cosi_tags_settings_init() {
 	register_setting(
-		'sgtm_settings', // option group
-		'sgtm_id', // option name
+		'cosi_tags_settings', // option group
+		'cosi_tags_id', // option name
 		array(
-			'sanitize_callback' => 'sgtm_sanitize_ids',
+			'sanitize_callback' => 'cosi_tags_sanitize_ids',
 			'show_in_rest' => TRUE,
 			'type' => 'string'
 		)
 	);
 	register_setting(
-		'sgtm_settings', // option group
-		'sgtm_defer', // option name
+		'cosi_tags_settings', // option group
+		'cosi_tags_defer', // option name
 		array(
-			'sanitize_callback' => 'sgtm_sanitize_checkbox',
+			'sanitize_callback' => 'cosi_tags_sanitize_checkbox',
 			'show_in_rest' => TRUE,
 			'type' => 'boolean',
 			'default' => FALSE
@@ -53,30 +53,30 @@ function sgtm_settings_init() {
 	);
 
 	add_settings_section(
-		'sgtm_settings_section', // section id
+		'cosi_tags_settings_section', // section id
 		'', // title (none — the page <h1> is enough)
 		'__return_false', // no intro callback
-		'sgtm_settings' // page slug (matches do_settings_sections)
+		'cosi_tags_settings' // page slug (matches do_settings_sections)
 	);
 
 	add_settings_field(
-		'sgtm_id', // field id
+		'cosi_tags_id', // field id
 		'Container ID', // label (rendered in the <th>)
-		'sgtm_field_id', // render callback
-		'sgtm_settings', // page slug
-		'sgtm_settings_section', // section id
-		array( 'label_for' => 'sgtm-id' )
+		'cosi_tags_field_id', // render callback
+		'cosi_tags_settings', // page slug
+		'cosi_tags_settings_section', // section id
+		array( 'label_for' => 'cosi-tags-id' )
 	);
 
 	add_settings_field(
-		'sgtm_defer', // field id
+		'cosi_tags_defer', // field id
 		'Defer loading', // label (rendered in the <th>)
-		'sgtm_field_defer', // render callback
-		'sgtm_settings', // page slug
-		'sgtm_settings_section' // section id
+		'cosi_tags_field_defer', // render callback
+		'cosi_tags_settings', // page slug
+		'cosi_tags_settings_section' // section id
 	);
 }
-add_action( 'admin_init', 'sgtm_settings_init' );
+add_action( 'admin_init', 'cosi_tags_settings_init' );
 
 
 /**
@@ -85,7 +85,7 @@ add_action( 'admin_init', 'sgtm_settings_init' );
  * @param string $value
  * @return bool
  */
-function sgtm_sanitize_checkbox( $value ) {
+function cosi_tags_sanitize_checkbox( $value ) {
 	return ! empty( $value );
 }
 
@@ -100,7 +100,7 @@ function sgtm_sanitize_checkbox( $value ) {
  * @param string $value
  * @return string
  */
-function sgtm_sanitize_ids( $value ) {
+function cosi_tags_sanitize_ids( $value ) {
 	$ids   = array_map( 'trim', explode( ',', (string) $value ) );
 	$valid = array();
 	foreach ( $ids as $id ) {
@@ -116,10 +116,10 @@ function sgtm_sanitize_ids( $value ) {
 /**
  * Render the Container ID field (Settings API callback, standalone installs).
  */
-function sgtm_field_id() {
+function cosi_tags_field_id() {
 	?>
-	<input type="text" class="regular-text" aria-describedby="sgtm-id-desc" name="sgtm_id" id="sgtm-id" value="<?php echo esc_attr( get_option( 'sgtm_id', '' ) ); ?>">
-	<p class="description" id="sgtm-id-desc">Enter your Google Tag Manager Container ID. It should look like GTM-Z3V1L. Separate multiple IDs with commas.</p>
+	<input type="text" class="regular-text" aria-describedby="cosi-tags-id-desc" name="cosi_tags_id" id="cosi-tags-id" value="<?php echo esc_attr( get_option( 'cosi_tags_id', '' ) ); ?>">
+	<p class="description" id="cosi-tags-id-desc">Enter your Google Tag Manager Container ID. It should look like GTM-Z3V1L. Separate multiple IDs with commas.</p>
 	<?php
 }
 
@@ -127,13 +127,13 @@ function sgtm_field_id() {
 /**
  * Render the Defer loading field (Settings API callback, standalone installs).
  */
-function sgtm_field_defer() {
+function cosi_tags_field_defer() {
 	?>
-	<label for="sgtm-defer">
-		<input type="checkbox" aria-describedby="sgtm-defer-desc" name="sgtm_defer" id="sgtm-defer" value="1" <?php checked( get_option( 'sgtm_defer', FALSE ) ); ?>>
+	<label for="cosi-tags-defer">
+		<input type="checkbox" aria-describedby="cosi-tags-defer-desc" name="cosi_tags_defer" id="cosi-tags-defer" value="1" <?php checked( get_option( 'cosi_tags_defer', FALSE ) ); ?>>
 		Load Google Tag Manager after the user interacts with the page.
 	</label>
-	<p class="description" id="sgtm-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.</p>
+	<p class="description" id="cosi-tags-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.</p>
 	<?php
 }
 
@@ -146,7 +146,7 @@ function sgtm_field_defer() {
  *   - multisite, can override → one override toggle that activates the fields
  *   - multisite, locked       → read-only view of the enforced network values
  */
-function sgtm_settings_page() {
+function cosi_tags_settings_page() {
 
 	if ( ! current_user_can( 'manage_options' ) ) {
 		echo '<div id="setting-message-denied" class="updated settings-error notice is-dismissible">
@@ -156,25 +156,25 @@ function sgtm_settings_page() {
 	}
 
 	if ( is_multisite() ) {
-		sgtm_settings_page_network_member();
+		cosi_tags_settings_page_network_member();
 		return;
 	}
 
-	sgtm_settings_page_standalone();
+	cosi_tags_settings_page_standalone();
 }
 
 
 /**
  * Per-site settings on a standalone (non-multisite) install: just the fields.
  */
-function sgtm_settings_page_standalone() {
+function cosi_tags_settings_page_standalone() {
 ?>
 <div class="wrap">
-<h1>Simple GTM settings</h1>
+<h1>Così Tags settings</h1>
 
 <form method="post" action="options.php">
-	<?php settings_fields( 'sgtm_settings' ); ?>
-	<?php do_settings_sections( 'sgtm_settings' ); ?>
+	<?php settings_fields( 'cosi_tags_settings' ); ?>
+	<?php do_settings_sections( 'cosi_tags_settings' ); ?>
 	<?php submit_button( 'Save Settings' ); ?>
 </form>
 
@@ -186,74 +186,74 @@ function sgtm_settings_page_standalone() {
 /**
  * Per-site settings for a site that belongs to a network.
  */
-function sgtm_settings_page_network_member() {
+function cosi_tags_settings_page_network_member() {
 
 	// When the network forbids overrides, this page is read-only.
-	if ( get_site_option( 'sgtm_prevent_overrides', FALSE ) ) {
-		sgtm_settings_page_locked();
+	if ( get_site_option( 'cosi_tags_prevent_overrides', FALSE ) ) {
+		cosi_tags_settings_page_locked();
 		return;
 	}
 
 	// Handle our own save so we can delete the site options when not overriding.
-	if ( isset( $_POST['sgtm_settings_submit'] ) ) {
-		check_admin_referer( 'sgtm_site_settings' );
-		if ( ! empty( $_POST['sgtm_override'] ) ) {
-			update_option( 'sgtm_override', TRUE );
-			update_option( 'sgtm_id', sgtm_sanitize_ids( isset( $_POST['sgtm_id'] ) ? wp_unslash( $_POST['sgtm_id'] ) : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_ids() validates each ID against the GTM-XXXX pattern.
-			update_option( 'sgtm_defer', sgtm_sanitize_checkbox( isset( $_POST['sgtm_defer'] ) ? wp_unslash( $_POST['sgtm_defer'] ) : FALSE ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- sgtm_sanitize_checkbox() casts the value to a boolean.
+	if ( isset( $_POST['cosi_tags_settings_submit'] ) ) {
+		check_admin_referer( 'cosi_tags_site_settings' );
+		if ( ! empty( $_POST['cosi_tags_override'] ) ) {
+			update_option( 'cosi_tags_override', TRUE );
+			update_option( 'cosi_tags_id', cosi_tags_sanitize_ids( isset( $_POST['cosi_tags_id'] ) ? wp_unslash( $_POST['cosi_tags_id'] ) : '' ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- cosi_tags_sanitize_ids() validates each ID against the GTM-XXXX pattern.
+			update_option( 'cosi_tags_defer', cosi_tags_sanitize_checkbox( isset( $_POST['cosi_tags_defer'] ) ? wp_unslash( $_POST['cosi_tags_defer'] ) : FALSE ) ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- cosi_tags_sanitize_checkbox() casts the value to a boolean.
 		} else {
 			// Stop overriding: fall back to the network by removing the site values.
-			delete_option( 'sgtm_override' );
-			delete_option( 'sgtm_id' );
-			delete_option( 'sgtm_defer' );
+			delete_option( 'cosi_tags_override' );
+			delete_option( 'cosi_tags_id' );
+			delete_option( 'cosi_tags_defer' );
 		}
 		echo '<div id="setting-message" class="updated notice is-dismissible"><p><strong>Settings saved.</strong></p></div>';
 	}
 
-	$overriding = get_option( 'sgtm_override', FALSE );
-	$net_id     = get_site_option( 'sgtm_id', '' );
-	$net_defer  = get_site_option( 'sgtm_defer', FALSE );
+	$overriding = get_option( 'cosi_tags_override', FALSE );
+	$net_id     = get_site_option( 'cosi_tags_id', '' );
+	$net_defer  = get_site_option( 'cosi_tags_defer', FALSE );
 
-	wp_enqueue_script( 'sgtm_admin', SGTM_URL . 'assets/admin.js',  [], SGTM_VERSION );
-	wp_enqueue_style(  'sgtm_admin', SGTM_URL . 'assets/admin.css', [], SGTM_VERSION );
+	wp_enqueue_script( 'cosi_tags_admin', COSITAGS_URL . 'assets/admin.js',  [], COSITAGS_VERSION );
+	wp_enqueue_style(  'cosi_tags_admin', COSITAGS_URL . 'assets/admin.css', [], COSITAGS_VERSION );
 
 ?>
 <div class="wrap">
-<h1>Simple GTM settings</h1>
+<h1>Così Tags settings</h1>
 
 <form method="post" action="">
-	<?php wp_nonce_field( 'sgtm_site_settings' ); ?>
+	<?php wp_nonce_field( 'cosi_tags_site_settings' ); ?>
 
 	<p>
-		<label for="sgtm-override">
-			<input type="checkbox" id="sgtm-override" name="sgtm_override" value="1" <?php checked( $overriding ); ?>>
-			Override the network Simple GTM settings for this site.
+		<label for="cosi-tags-override">
+			<input type="checkbox" id="cosi-tags-override" name="cosi_tags_override" value="1" <?php checked( $overriding ); ?>>
+			Override the network Così Tags settings for this site.
 		</label>
 	</p>
 
-	<fieldset id="sgtm-fields"<?php disabled( ! $overriding ); ?>>
+	<fieldset id="cosi-tags-fields"<?php disabled( ! $overriding ); ?>>
 		<table class="form-table" role="presentation">
 			<tr>
-				<th scope="row"><label for="sgtm-id">Container ID</label></th>
+				<th scope="row"><label for="cosi-tags-id">Container ID</label></th>
 				<td>
-					<input type="text" class="regular-text" aria-describedby="sgtm-id-desc" name="sgtm_id" id="sgtm-id" value="<?php echo esc_attr( get_option( 'sgtm_id', '' ) ); ?>">
-					<p class="description" id="sgtm-id-desc">Enter your Google Tag Manager Container ID. It should look like GTM-Z3V1L. Separate multiple IDs with commas.<br>Network default: <code><?php echo esc_html( $net_id ?: '(not set)' ); ?></code></p>
+					<input type="text" class="regular-text" aria-describedby="cosi-tags-id-desc" name="cosi_tags_id" id="cosi-tags-id" value="<?php echo esc_attr( get_option( 'cosi_tags_id', '' ) ); ?>">
+					<p class="description" id="cosi-tags-id-desc">Enter your Google Tag Manager Container ID. It should look like GTM-Z3V1L. Separate multiple IDs with commas.<br>Network default: <code><?php echo esc_html( $net_id ?: '(not set)' ); ?></code></p>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Defer loading</th>
 				<td>
-					<label for="sgtm-defer">
-						<input type="checkbox" aria-describedby="sgtm-defer-desc" name="sgtm_defer" id="sgtm-defer" value="1" <?php checked( get_option( 'sgtm_defer', FALSE ) ); ?>>
+					<label for="cosi-tags-defer">
+						<input type="checkbox" aria-describedby="cosi-tags-defer-desc" name="cosi_tags_defer" id="cosi-tags-defer" value="1" <?php checked( get_option( 'cosi_tags_defer', FALSE ) ); ?>>
 						Load Google Tag Manager after the user interacts with the page.
 					</label>
-					<p class="description" id="sgtm-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.<br>Network default: <code><?php echo $net_defer ? 'On' : 'Off'; ?></code></p>
+					<p class="description" id="cosi-tags-defer-desc">Improves page speed by filtering out bots and bounce traffic — your pageview and session counts may drop as a result.<br>Network default: <code><?php echo $net_defer ? 'On' : 'Off'; ?></code></p>
 				</td>
 			</tr>
 		</table>
 	</fieldset>
 
-	<input type="hidden" name="sgtm_settings_submit" value="1">
+	<input type="hidden" name="cosi_tags_settings_submit" value="1">
 	<?php submit_button( 'Save Settings' ); ?>
 </form>
 
@@ -265,10 +265,10 @@ function sgtm_settings_page_network_member() {
 /**
  * Read-only per-site view when the network has locked the settings.
  */
-function sgtm_settings_page_locked() {
+function cosi_tags_settings_page_locked() {
 ?>
 <div class="wrap">
-<h1>Simple GTM settings</h1>
+<h1>Così Tags settings</h1>
 
 <div class="notice notice-info inline">
 	<p>These settings are managed by your network administrator and can't be changed here.</p>
@@ -276,11 +276,11 @@ function sgtm_settings_page_locked() {
 <table class="form-table" role="presentation">
 	<tr>
 		<th scope="row">Container ID</th>
-		<td><code><?php echo esc_html( get_site_option( 'sgtm_id', '' ) ?: '(not set)' ); ?></code></td>
+		<td><code><?php echo esc_html( get_site_option( 'cosi_tags_id', '' ) ?: '(not set)' ); ?></code></td>
 	</tr>
 	<tr>
 		<th scope="row">Defer loading</th>
-		<td><?php echo get_site_option( 'sgtm_defer', FALSE ) ? 'On' : 'Off'; ?></td>
+		<td><?php echo get_site_option( 'cosi_tags_defer', FALSE ) ? 'On' : 'Off'; ?></td>
 	</tr>
 </table>
 

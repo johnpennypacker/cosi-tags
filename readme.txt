@@ -1,4 +1,4 @@
-=== Simple GTM ===
+=== Così Tags ===
 Contributors: johnpenn
 Donate link: https://pennypacker.net
 Tags: google tag manager, gtm, tag manager, analytics, tracking
@@ -32,18 +32,18 @@ Plus, your theme should follow two particular WordPress standards. Those standar
 
 1. Install the plugin, either by uploading it to `/wp-content/plugins/` or through the WordPress plugin directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
-3. Navigate to Admin -> Settings -> Simple GTM and enter your Container ID. Important: without a Container ID, the plugin does nothing.
+3. Navigate to Admin -> Settings -> Così Tags and enter your Container ID. Important: without a Container ID, the plugin does nothing.
 4. Optionally choose to defer loading.
 5. Hit Save.
 
 = Multisite set up =
 
-* As above, except you might choose to set up network default settings under Network Admin -> Settings -> Simple GTM.
+* As above, except you might choose to set up network default settings under Network Admin -> Settings -> Così Tags.
 * By default, subsites can override network settings, but you can prevent that in the network settings if desired.
 
 = Validation =
 
-Load a WordPress page in your favorite web browser and view the source code. Search the code for "Simple GTM". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
+Load a WordPress page in your favorite web browser and view the source code. Search the code for "Così Tags". You should find two snippets, one within the `<head>` and the other within the `<body>`. Each snippet should include your container ID(s). Or, doublecheck using Google Tag Manager's own validation.
 
 == Questions and answers ==
 
@@ -51,9 +51,9 @@ Load a WordPress page in your favorite web browser and view the source code. Sea
 
 Google Tag Manager embeds snippets of HTML and Javascript on your website. It is often used to manage analytics tools on a website without changing the website's code.
 
-= What does Simple GTM do? =
+= What does Così Tags do? =
 
-Simple GTM embeds the snippets of HTML and Javascript that Google Tag Manager requires on your website — in the proper locations — without you having to manually change any code.
+Così Tags embeds the snippets of HTML and Javascript that Google Tag Manager requires on your website — in the proper locations — without you having to manually change any code.
 
 = Does Google Tag Manager have terms of service or related policies? =
 
@@ -77,7 +77,7 @@ Probably. It'll filter out bots and bounces which may lead to a drop in recorded
 
 = Can I override defer settings on an ad hoc basis? =
 
-Yes, you can add sgtm=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
+Yes, you can add cosi-tags=nodefer to the URL's querystring and that'll cause GTM to load when the rest of the page loads regardless of what the user does.
 
 = Can I load multiple GTM containers? =
 
@@ -87,14 +87,14 @@ You can enter more than one ID, separate them by commas.
 
 Manage those directly in Google Tag Manager.
 
-= Does Simple GTM load Google Tag Manager in the admin panel? =
+= Does Così Tags load Google Tag Manager in the admin panel? =
 
 No. Tag Manager is loaded on the front end of the website only.
 
 == Screenshots ==
 
-1. Simple GTM admin settings screen.
-2. Simple GTM network/multisite settings screen.
+1. Così Tags admin settings screen.
+2. Così Tags network/multisite settings screen.
 
 
 == Changelog ==
