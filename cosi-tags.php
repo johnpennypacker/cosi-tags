@@ -73,7 +73,9 @@ function cosi_tags_get_defer() {
 }
 
 /**
- * Adds the js version of the GTM code to the <head>. 
+ * Adds the js version of the GTM code to the <head>.
+ * Per GTM's instructions, " Paste this code as high in the <head> of the page as possible"
+ * this is a close as you can get.
  */
 function cosi_tags_head() {
 	$ids   = cosi_tags_get_ids();
