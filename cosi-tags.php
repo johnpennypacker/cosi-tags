@@ -3,7 +3,7 @@
 Plugin Name: Così Tags
 Plugin URI: 
 Description: A simple Google Tag Manager code inserter
-Version: 1.0
+Version: 1.0.0
 Author: John Pennypacker
 Author URI: https://pennypacker.net
 License: GPLv3
