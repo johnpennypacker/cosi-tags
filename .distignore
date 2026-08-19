@@ -1,0 +1,13 @@
+.distignore
+.DS_Store
+.git
+.github
+.gitignore
+.wordpress-org
+composer.json
+composer.lock
+node_modules
+package.json
+package-lock.json
+README.md
+todo.txt
