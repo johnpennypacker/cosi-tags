@@ -11,3 +11,5 @@ package.json
 package-lock.json
 README.md
 todo.txt
+.githooks
+bin

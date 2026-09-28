@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Sync to the WordPress.org SVN checkout when main is pushed (see
+# bin/svn-sync.sh). Enable once per clone with:
+#
+#   git config core.hooksPath .githooks
+#
+# Git feeds one line per pushed ref on stdin:
+#   <local ref> <local sha> <remote ref> <remote sha>
+
+zero=0000000000000000000000000000000000000000
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+	if [ "$remote_ref" = "refs/heads/main" ] && [ "$local_sha" != "$zero" ]; then
+		"$(git rev-parse --show-toplevel)/bin/svn-sync.sh" "$local_sha" || \
+			echo "svn-sync failed; the push will continue." >&2
+	fi
+done
+
+exit 0
