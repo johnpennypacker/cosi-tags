@@ -3,9 +3,9 @@ Contributors: johnpenn
 Donate link: https://pennypacker.net
 Tags: google tag manager, gtm, tag manager, analytics, tracking
 Requires at least: 5.2
-Tested up to: 7.0.4
+Tested up to: 7.1.4
 Requires PHP: 7.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -98,6 +98,10 @@ No. Tag Manager is loaded on the front end of the website only.
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Tested with WordPress 7.1.4.
+* Updated icon and banners.
 
 = 1.0 =
 * Initial release.
